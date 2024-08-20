@@ -17,7 +17,11 @@ function outlineText(ctx, color, txt, x, y) {
 // Function to get URL parameters
 function getUrlParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
-    return parseFloat(urlParams.get(name)) || 1.0; // Default speed is 1.0
+    value = parseFloat(urlParams.get(name)) || 1.0;
+    if (probablyPhone) {
+        return value * 5.0  // Adjust speed for phones
+    }
+    return value // Default speed is 1.0
 }
 
 // Get the speed parameter from the URL
